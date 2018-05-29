@@ -17,7 +17,7 @@ class FaceDetector(object):
         self.argvs = sys.argv
         self.face_cascade = cv2.CascadeClassifier('camera/processor/model/haarcascades/haarcascade_frontalface_default.xml')
         if len(self.argvs) >= 2 and "eyes" in self.argvs:
-        self.eye_cascade = cv2.CascadeClassifier('camera/processor/model/haarcascades/haarcascade_eye.xml')
+            self.eye_cascade = cv2.CascadeClassifier('camera/processor/model/haarcascades/haarcascade_eye.xml')
 
         # opencvの顔分類器(CascadeClassifier)をインスタンス化する
 
@@ -45,7 +45,7 @@ class FaceDetector(object):
                roi_color = frame[y:y+h, x:x+w]
                eyes = self.eye_cascade.detectMultiScale(roi_gray)
                for (ex,ey,ew,eh) in eyes:
-               cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,255,0),2)
+                 cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,255,0),2)
         # opencvでframe(カラー画像)をグレースケールに変換
 
         # 上記でグレースケールに変換したものをインスタンス化した顔分類器の
